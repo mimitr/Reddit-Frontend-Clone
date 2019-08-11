@@ -105,7 +105,7 @@ footer > * {
 }
 
 .nav-item {
-  margin: auto;
+  margin: 10px;
   padding: 5px;
   display: inline;
   list-style-type: none;
@@ -130,3 +130,142 @@ footer > * {
 }
 
 /* Add your styles here */
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: 40% auto; /* 15% from the top and centered */
+  padding: 70px;
+  border: 1px solid #888;
+  width: 42%; /* Could be more or less, depending on screen size */
+  border: 3px solid #a6caf5;
+}
+  
+.modal-content input {
+  font-family: "Roboto", sans-serif;
+  outline: 1;
+  margin: 0 0 15px;
+  width: 100%;
+  border: 0;
+  background: #f2f2f2;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+
+.modal-content button {
+  background-color: #075cdb;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:10px;
+  opacity: 0.8;
+}
+
+.modal-content .btn_cancel {
+  background-color: #696a6b;
+}
+
+.modal-content h1 {
+  text-align: left;
+}
+
+
+/* image of a post */
+img {
+  width: 70%;
+  height: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  float: left;
+  position: relative;
+}
+
+
+#profile_button {
+  border: 1px solid var(--reddit-blue);
+  border-radius: 4px;
+  text-transform: uppercase;
+  padding: 7.5px 15px;
+  font-weight: bold;
+}
+
+#profile_img {
+  margin-left: 30px;
+  margin-bottom: 30px;
+  position: relative;
+  left: -10%;
+}
+
+#name_header {
+  font-size: 25px;
+  position: relative;
+  float: left;
+}
+
+#followed_num_p {
+  font-size: 20px;
+  position: relative;
+  float: left;
+}
+
+#following_p {
+  font-size: 15px;
+  position: relative;
+  float: left;
+}
+
+#num_posts {
+  font-size: 15px;
+  position: relative;
+  float: left;
+  
+}
+
+#button-private-feed {
+  border: 1px solid var(--reddit-orange);
+  border-radius: 4px;
+  text-transform: uppercase;
+  padding: 7.5px 15px;
+  font-weight: bold;
+  position: relative;
+  right: 130%;
+
+}
+
+#button-public-feed {
+  border: 1px solid var(--reddit-orange);
+  border-radius: 4px;
+  text-transform: uppercase;
+  padding: 7.5px 15px;
+  font-weight: bold;
+  margin-right: 8px;
+  position: relative;
+  right: 130%;
+}
+
+/* for drop down menu */
+#subseddit_menu {
+  position: absolute;
+  left: 10%;
+  top: 3%;
+}

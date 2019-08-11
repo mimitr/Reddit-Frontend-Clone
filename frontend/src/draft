@@ -1,0 +1,150 @@
+
+        <header class='banner' id="nav">
+            <h1 id="logo" class="flex-center">Seddit</h1>
+            <ul class='nav'>
+                <li class="nav-item">
+                    <input id="search" data-id-search placeholder="Search Seddit" type="search" />
+                </li>
+                <li class='nav-item'>
+                    <button data-id-login class="button button-primary">Log In</button>
+                </li>
+                <li class='nav-item'>
+                    <button data-id-signup class="button button-secondary">Sign Up</button>
+                </li>
+            </ul>
+        </header>
+        <main role='main'>
+            <ul id="feed" data-id-feed>
+                <div class="feed-header">
+                    <h3 class="feed-title alt-text">Popular posts</h3>
+                    <button class="button button-secondary">Post</button>
+                </div>
+                <li class="post" data-id-post>
+                    <div class="vote" data-id-upvotes></div>
+                    <div class="content">
+                        <h4 data-id-title class="post-title alt-text">Avenger’s Endgame Officially Passes Avatar To Become The
+                            Highest Grossing Movie Of All Time</h4>
+                        <p class="post-author" data-id-author>Posted by @some_dude69</p>
+                    </div>
+                </li>
+                <li class="post" data-id-post>
+                    <div class="vote" data-id-upvotes></div>
+                    <div class="content">
+                        <h4 data-id-title class="post-title alt-text">Avenger’s Endgame Officially Passes Avatar To Become The
+                            Highest Grossing Movie Of All Time</h4>
+                        <p class="post-author" data-id-author>Posted by @some_dude69</p>
+                    </div>
+                </li>
+                <li class="post" data-id-post>
+                    <div class="vote" data-id-upvotes></div>
+                    <div class="content">
+                        <h4 data-id-title class="post-title alt-text">Avenger’s Endgame Officially Passes Avatar To Become The
+                            Highest Grossing Movie Of All Time</h4>
+                        <p class="post-author" data-id-author>Posted by @some_dude69</p>
+                    </div>
+                </li>
+                <li class="post" data-id-post>
+                    <div class="vote" data-id-upvotes></div>
+                    <div class="content">
+                        <h4 data-id-title class="post-title alt-text">Avenger’s Endgame Officially Passes Avatar To Become The
+                            Highest Grossing Movie Of All Time</h4>
+                        <p class="post-author" data-id-author>Posted by @some_dude69</p>
+                    </div>
+                </li>
+                <li class="post" data-id-post>
+                    <div class="vote" data-id-upvotes></div>
+                    <div class="content">
+                        <h4 data-id-title class="post-title alt-text">Avenger’s Endgame Officially Passes Avatar To Become The
+                            Highest Grossing Movie Of All Time</h4>
+                        <p class="post-author" data-id-author>Posted by @some_dude69</p>
+                    </div>
+                </li>
+                <li class="post" data-id-post>
+                    <div class="vote" data-id-upvotes></div>
+                    <div class="content">
+                        <h4 data-id-title class="post-title alt-text">Avenger’s Endgame Officially Passes Avatar To Become The
+                            Highest Grossing Movie Of All Time</h4>
+                        <p class="post-author" data-id-author>Posted by @some_dude69</p>
+                    </div>
+                </li>
+                <li class="post" data-id-post>
+                    <div class="vote" data-id-upvotes></div>
+                    <div class="content">
+                        <h4 data-id-title class="post-title alt-text">Avenger’s Endgame Officially Passes Avatar To Become The
+                            Highest Grossing Movie Of All Time</h4>
+                        <p class="post-author" data-id-author>Posted by @some_dude69</p>
+                    </div>
+                </li>
+            </ul>
+        </main>
+        <footer>
+            <p>Seddit example</p>
+        </footer>
+
+        .modal {
+  display: block; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  padding-top: 60px;
+}
+
+
+
+let img_base64_promise = encodeImageFileAsURL();
+//img_base64 = img_base64.split(',')[1];
+//console.log(img_base64_promise);
+if(img_base64_promise) {
+    img_base64_promise.then(response=>{
+        //console.log(response);
+        const img_base64 = response.split(',')[1];
+        //console.log(img_base64);
+
+        const new_post_url = ${url}/post/;
+        const new_post_data = {
+            "title": ${input_title},
+            "text": ${input_text},
+            "subseddit": ${input_subseddit},
+            "image": ${img_base64}
+        }
+        const new_post_options = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': Token: ${user}
+            },
+            body: JSON.stringify(new_post_data)
+        };
+
+
+function encodeImageFileAsURL() {
+    //let srcData = 0;
+    //const promise = new Promise((resolve, reject)=>{
+
+    //})
+    let filesSelected = document.getElementById("new_img").files;
+    console.log(filesSelected);
+    if (filesSelected.length > 0) {
+        const promise = new Promise((resolve, reject)=>{
+            let fileToLoad = filesSelected[0];
+
+            let fileReader = new FileReader();
+
+            fileReader.onloadend = () => resolve(fileReader.result)
+            fileReader.onerror = reject;
+            fileReader.readAsDataURL(fileToLoad);
+        });
+        return promise;
+        
+    } else {
+        return false;
+    }
+    //console.log(srcData);
+    //return srcData;
+}
