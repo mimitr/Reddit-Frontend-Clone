@@ -49,34 +49,140 @@ const li1 = document.createElement("li");
 li1.className = "nav-item";
 ul.appendChild(li1);
 
-// create menu drop down for subseddit choices
-const li_menu = document.createElement("li");
-li_menu.className = "nav_item";
-li_menu.id = "subseddit_menu";
-const menu_form = document.createElement("form");
-menu_form.id = "menu_form"
-const select = document.createElement("select");
-select.setAttribute("name", "menu");
-menu_form.appendChild(select);
-const option1 = document.createElement("option");
-option1.setAttribute("value", "sub1");
-option1.innerText = "s/";
-const option2 = document.createElement("option");
-option2.setAttribute("value", "sub2");
-option2.innerText = "s/";
-select.appendChild(option1);
-select.appendChild(option2);
-ul.appendChild(li_menu);
-// drop menu
-li_menu.appendChild(menu_form);
+// search  subseddits
+const input_subseddit = document.createElement("input");
+input_subseddit.id = "search_subseddit";
+const input_subseddit_attr = document.createAttribute("data-id-search");
+input_subseddit.setAttributeNode(input_subseddit_attr);
+input_subseddit.placeholder = "Search Seddit";
+input_subseddit.type = "search";
+li1.appendChild(input_subseddit);
+// search icon
+const search_icon_subseddit = document.createElement("i");
+search_icon_subseddit.id = "search_icon_subseddit";
+search_icon_subseddit.className = "material-icons";
+search_icon_subseddit.innerText = "image_search";
+search_icon_subseddit.addEventListener("click", search_subseddit_modal);
+li1.appendChild(search_icon_subseddit);
 
-// search
+function search_subseddit_modal() {
+    const search_text = document.getElementById('search_subseddit').value;
+    const search_text_reg = new RegExp(search_text, "ig");
+
+    console.log(" search_text", search_text);
+    console.log("clicked search");
+
+    const modal_search = document.createElement("div");
+    modal_search.className = "modal";
+    modal_search.id = "modal_search_subseddit";
+    document.getElementById("feed").appendChild(modal_search);
+
+
+    const div_modal_content = document.createElement("div");
+    div_modal_content.className = "modal-content";
+    div_modal_content.id = "modal-search-content";
+    modal_search.appendChild(div_modal_content);
+
+    const h1 = document.createElement("h1");
+    h1.innerText = "Search Results: ";
+    div_modal_content.appendChild(h1);
+
+    //closing icon
+    const close_icon = document.createElement("i");
+    close_icon.classList.add("material-icons");
+    close_icon.classList.add("close_modal");
+    close_icon.innerText = "close"
+    modal_search.appendChild(close_icon);
+
+    // get all people who the user follows
+    const options = {
+        method: 'GET',
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Token: ${localStorage.getItem("token")}`
+        }
+    }
+
+    fetch(`${base_URL}/user/`, options)
+        .then(response => {
+            if (response.status == '200') {
+                return response.json();
+            }
+        })
+        .then(resp => {
+            resp.following.map(user => {
+                // get all the posts from the following users
+                fetch(`${base_URL}/user/?id=${user}`, options)
+                    .then(response => {
+                        if (response.status == '200') {
+                            return response.json();
+                        }
+                    })
+                    .then(resp => {
+                        console.log(resp);
+                        resp.posts.map(post => {
+                            //get the post contents
+                            fetch(`${base_URL}/post/?id=${post}`, options)
+                                .then(response => {
+                                    if (response.status == '200') {
+                                        return response.json();
+                                    }
+                                })
+                                .then(post_content => {
+                                    console.log(post_content);
+                                    const all_content = post_content.meta.subseddit;
+                                    const isMatched = search_text_reg.test(all_content);
+                                    console.log(isMatched);
+                                    if (isMatched) {
+                                        const div_post = document.createElement("div");
+                                        div_post.className = "users_own_posts";
+                                        div_modal_content.appendChild(div_post);
+
+                                        const subseddit = document.createElement("p");
+                                        subseddit.innerText = "s/" + post_content.meta.subseddit;
+                                        div_post.appendChild(subseddit);
+
+                                        const title = document.createElement("h3");
+                                        title.innerText = post_content.title;
+                                        div_post.appendChild(title);
+
+                                        const text = document.createElement("p");
+                                        text.innerText = post_content.text;
+                                        div_post.appendChild(text);
+
+                                        if (post_content.image != null) {
+                                            const img = document.createElement("img");
+                                            img.className = "post_user_image";
+                                            img.src = 'data:image/jpeg;base64,' + `${post_content.image}`;
+                                            div_post.appendChild(img);
+                                        }
+
+                                        const br = document.createElement("br");
+                                        div_post.appendChild(br);
+
+                                        const date = document.createElement("p");
+                                        date.innerText = convert(post_content.meta.published);
+                                        div_post.appendChild(date);
+                                    }
+                                })
+                        })
+                    })
+            })
+        })
+
+    modal_search.style.display = "block";
+    close_icon.addEventListener("click", follow_close_icon);
+}
+
+
+
+// search everything
 const input = document.createElement("input");
 input.id = "search";
 const input_attr = document.createAttribute("data-id-search");
 input.setAttributeNode(input_attr);
-input.placeholder = "Search Seddit"
-input.type = "search"
+input.placeholder = "Search Everything";
+input.type = "search";
 li1.appendChild(input);
 
 // search submit icon
@@ -441,7 +547,6 @@ function save_updates() {
     const name = document.getElementById("form_update_profile").name.value;
     const email = document.getElementById("form_update_profile").email.value;
     const password = document.getElementById("form_update_profile").password.value;
-    //console.log(name, email, password);
     const new_post_data = {
         "email": email,
         "name": name,

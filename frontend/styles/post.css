@@ -174,15 +174,17 @@ textarea {
   background-color:#dce1e3;
   position: relative;
   left: 26%;
-  margin-top: 60%;
+  margin-top: 30%;
+  margin-bottom: 50%;
   font-size: 16px;
   border-radius: 3px;
   
 } 
 .delete_button {
   background-color: #c4c2c0;
-  position: relative;
-  right: 20%;
+  position: absolute;
+  left:17%;
+  bottom: 30%;
   margin-bottom: 5%;
   
   
