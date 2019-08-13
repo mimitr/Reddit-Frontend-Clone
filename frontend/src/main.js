@@ -13,7 +13,6 @@ import feed from './feed.js';
 import login from './login.js';
 import signup from './signup.js';
 import nav from './nav.js';
-import profile from './profile.js';
 
 function initApp(apiUrl) {
   // your app initialisation goes here
@@ -61,13 +60,7 @@ function initApp(apiUrl) {
   if (localStorage.getItem("token") == null) {
     main.appendChild(login);
     main.appendChild(signup);
-  } else {
-    //main.appendChile(profile);
-    profile();
   }
-
-
-
 
 }
 export default initApp;

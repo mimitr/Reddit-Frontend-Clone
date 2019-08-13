@@ -104,6 +104,7 @@ button_signup.addEventListener('click', (event) => {
         .then(resp => {
             // console.log(token); // json object
             localStorage.setItem('token', resp.token);
+            document.location.reload();
         })
         .catch(error => {
             // console.log(error.message);
@@ -124,6 +125,7 @@ button_signup.addEventListener('click', (event) => {
                 signup_error.innerText = "Oops, the username is taken";
             }
         });
+
 });
 
 

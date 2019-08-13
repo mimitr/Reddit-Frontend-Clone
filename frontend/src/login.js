@@ -60,6 +60,7 @@ form.appendChild(button_cancel);
 
 const URL = 'http://localhost:5000';
 button_login.addEventListener('click', (event) => {
+    localStorage.setItem("myFeed", "true");
     const username = form.elements.username.value;
     const password = form.elements.password.value;
     // fetch
@@ -97,7 +98,6 @@ button_login.addEventListener('click', (event) => {
 
         })
         .catch(error => {
-            //console.log("error" + error.message);
             // missing unam/pass
             const error_exist = document.getElementById("login_error");
             // if the error message does not exist
@@ -113,8 +113,6 @@ button_login.addEventListener('click', (event) => {
 
                 // 403 -> invalid uname/password
             } else {
-                //   console.log(username, password);
-                //  console.log(error.message);
                 login_error.innerText = "Invalid Username/Password";
             }
         })

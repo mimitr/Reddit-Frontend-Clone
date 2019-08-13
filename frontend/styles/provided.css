@@ -1,271 +1,358 @@
-/* base styles, feel free to edit */
-:root {
-  --reddit-blue: #0079D3;
-  --reddit-orange: #FF5700;
-  --reddit-grey: rgba(0, 0, 0, 0.0975);
-  --reddit-light-grey:  rgba(0, 0, 0, 0.041);
-  --reddit-bg-color: #f1f1f7;
-  --body-text-size: 12px;
-  --alt-text-color:  rgba(0, 0, 0, 0.65);
-}
 
-html,
-body {
-  margin: 0;
-  padding: 0;
-  background-color: var(--reddit-bg-color);
-  height: 100%;
-  font-family: -apple-system, 'Open Sans', 'Helvetica Neue', sans-serif;
-}
-
-footer {
-  border-top: 1px solid var(--reddit-grey);
-  padding: 10px;
-  background-color: white;
-  min-height: 50px;
-  text-align: right;
-}
-
-.alt-text {
-  color: var(--alt-text-color);
-}
-
-.flex-center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.banner {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: space-between;
-  align-items: center;
-  background-color: white;
-  min-height: 50px;
-  border-bottom: 1px solid var(--reddit-grey);
-}
-
-#logo {
-  color: white;
-  font-size: var(--body-text-size);
-  width: 40px;
-  height: 40px;
-  background-color: var(--reddit-orange);
-  border-radius: 50%;
-}
-
-#search {
-  background-color: var(--reddit-bg-color);
-  font: inherit;
-  font-size: var(--body-text-size);
-  border: none;
-  padding: 7.5px 15px;
-  outline: none;
-  border: 1px solid var(--reddit-grey);
-  border-radius: 4px;
-}
-
-#search::placeholder {
-  letter-spacing: 0.5px;
-  font-size: var(--body-text-size);
-}
-
-#search:focus {
-  background-color: white;
-  border-color: var(--reddit-blue);
-}
-
-.button {
-  border: 1px solid var(--reddit-blue);
-  border-radius: 4px;
-  text-transform: uppercase;
-  padding: 7.5px 15px;
-  font-weight: bold;
-}
-
-.button-primary {
-  color: var(--reddit-blue);
-}
-
-.button-secondary {
-  background-color: var(--reddit-blue);
-  color: white;
-}
-
-.banner > *,
-footer > * {
-  margin: 10px 25px;
-}
-
-.nav {
-  list-style-type: none;
-  padding: 0;
-}
-
-.nav-item {
-  margin: 10px;
-  padding: 5px;
-  display: inline;
-  list-style-type: none;
-}
-
-#feed {
-  min-width: 500px;
-  max-width: 800px;
-  width: 80%;
-  margin: 20px auto;
-  padding: 0;
-}
-
-.feed-header {
-  display: flex;
-  justify-content: space-between;
-}
-
-.feed-title {
-  font-weight: normal;
-  margin: 0;
-}
-
-/* Add your styles here */
-
-/* The Modal (background) */
-.modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-}
-
-/* Modal Content/Box */
-.modal-content {
-  position: relative;
-  background-color: #fefefe;
-  margin: 40% auto; /* 15% from the top and centered */
-  padding: 70px;
-  border: 1px solid #888;
-  width: 42%; /* Could be more or less, depending on screen size */
-  border: 3px solid #a6caf5;
-}
+  /* base styles, feel free to edit */
+  :root {
+    --reddit-blue: #0079D3;
+    --reddit-orange: #FF5700;
+    --reddit-grey: rgba(0, 0, 0, 0.0975);
+    --reddit-light-grey:  rgba(0, 0, 0, 0.041);
+    --reddit-bg-color: #f1f1f7;
+    --body-text-size: 12px;
+    --alt-text-color:  rgba(0, 0, 0, 0.65);
+  }
   
-.modal-content input {
-  font-family: "Roboto", sans-serif;
-  outline: 1;
-  margin: 0 0 15px;
-  width: 100%;
-  border: 0;
-  background: #f2f2f2;
-  padding: 15px;
-  box-sizing: border-box;
-  font-size: 14px;
-}
-
-
-.modal-content button {
-  background-color: #075cdb;
-  color: white;
-  padding: 16px 20px;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-  margin-bottom:10px;
-  opacity: 0.8;
-}
-
-.modal-content .btn_cancel {
-  background-color: #696a6b;
-}
-
-.modal-content h1 {
-  text-align: left;
-}
-
-
-/* image of a post */
-img {
-  width: 70%;
-  height: auto;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  float: left;
-  position: relative;
-}
-
-
-#profile_button {
-  border: 1px solid var(--reddit-blue);
-  border-radius: 4px;
-  text-transform: uppercase;
-  padding: 7.5px 15px;
-  font-weight: bold;
-}
-
-#profile_img {
-  margin-left: 30px;
-  margin-bottom: 30px;
-  position: relative;
-  left: -10%;
-}
-
-#name_header {
-  font-size: 25px;
-  position: relative;
-  float: left;
-}
-
-#followed_num_p {
-  font-size: 20px;
-  position: relative;
-  float: left;
-}
-
-#following_p {
-  font-size: 15px;
-  position: relative;
-  float: left;
-}
-
-#num_posts {
-  font-size: 15px;
-  position: relative;
-  float: left;
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+    /*background-color: var(--reddit-bg-color);*/
+    background-color: #f2f1ed;
+    background-image: url("https://www.transparenttextures.com/patterns/tileable-wood.png");
+    height: 100%;
+    font-family: -apple-system, 'Open Sans', 'Helvetica Neue', sans-serif;
+  }
   
-}
+  footer {
+    border-top: 1px solid var(--reddit-grey);
+    padding: 10px;
+    background-color: white;
+    min-height: 50px;
+    text-align: right;
+  }
+  
+  .alt-text {
+    color: var(--alt-text-color);
+  }
+  
+  .flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .banner {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    min-height: 50px;
+    border-bottom: 1px solid var(--reddit-grey);
+  }
+  
+  #logo {
+    color: white;
+    font-size: var(--body-text-size);
+    width: 40px;
+    height: 40px;
+    background-color: var(--reddit-orange);
+    border-radius: 50%;
+  }
+  
+  #search {
+    background-color: var(--reddit-bg-color);
+    font: inherit;
+    font-size: var(--body-text-size);
+    border: none;
+    padding: 7.5px 15px;
+    outline: none;
+    border: 1px solid var(--reddit-grey);
+    border-radius: 4px;
+  }
+  
+  #search::placeholder {
+    letter-spacing: 0.5px;
+    font-size: var(--body-text-size);
+  }
+  
+  #search:focus {
+    background-color: white;
+    border-color: var(--reddit-blue);
+  }
+  
+  .button {
+    border: 1px solid var(--reddit-blue);
+    border-radius: 4px;
+    text-transform: uppercase;
+    padding: 7.5px 15px;
+    font-weight: bold;
+  }
+  
+  .button-primary {
+    color: var(--reddit-blue);
+  }
+  
+  .button-secondary {
+    background-color: var(--reddit-blue);
+    color: white;
+    font-size:17px;
+  }
+  
+  .banner > *,
+  footer > * {
+    margin: 10px 25px;
+  }
+  
+  .nav {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .nav-item {
+    margin: 10px;
+    padding: 5px;
+    display: inline;
+    list-style-type: none;
+  }
+  
+  #feed {
+    min-width: 1000px;
+    max-width: 1200px;
+    width: 80%;
+    margin: 20px auto;
+    padding: 0;
+  }
+  
+  .feed-header {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .feed-title {
+    font-weight: normal;
+    margin: 0;
+    font-family: 'Kaushan Script', cursive;
+    font-size: 230%;
 
-#button-private-feed {
-  border: 1px solid var(--reddit-orange);
-  border-radius: 4px;
-  text-transform: uppercase;
-  padding: 7.5px 15px;
-  font-weight: bold;
-  position: relative;
-  right: 130%;
+  }
+  
+  /* Add your styles here */
+  
+  /* The Modal (background) */
+  .modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  
+  /* Modal Content/Box */
+  .modal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: 40% auto; /* 15% from the top and centered */
+    padding: 70px;
+    border: 1px solid #888;
+    width: 42%; /* Could be more or less, depending on screen size */
+    border: 3px solid #eb8107;
+    border-radius: 4px;
+  }
+    
+  .modal-content input {
+    font-family: "Roboto", sans-serif;
+    outline: 1;
+    margin: 0 0 15px;
+    width: 100%;
+    border: 0;
+    background: #f2f2f2;
+    padding: 15px;
+    box-sizing: border-box;
+    font-size: 14px;
+  }
+  
+  
+  .modal-content button {
+    background-color: #a6a5a4;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom:10px;
+    opacity: 0.8;
+  }
+  
+  .modal-content .btn_cancel {
+    background-color: #696a6b;
+  }
+  
+  .modal-content h1 {
+    text-align: left;
+  }
+  
+  
+  /* image of a post */
+  img {
+    width: 70%;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    float: left;
+    position: relative;
+  }
+  
+  
+  .profile_button {
+    border: 1px solid var(--reddit-blue);
+    border-radius: 4px;
+    text-transform: uppercase;
+    padding: 7.5px 15px;
+  font-size: 16px;
+    font-weight: bold;
+  }
+  
+  #profile_img {
+    margin-left: 30px;
+    margin-bottom: 30px;
+    position: relative;
+    left: -10%;
+  }
+  
+  /*#name_header {
+    font-size: 25px;
+    position: relative;
+    float: left;
+  }
+  
+  #followed_num_p {
+    font-size: 20px;
+    position: relative;
+    float: left;
+  }
+  
+  #following_p {
+    font-size: 15px;
+    position: relative;
+    float: left;
+  }
+  
+  #num_posts {
+    font-size: 15px;
+    position: relative;
+    float: left;
+    
+  }*/
+  
+  #button-private-feed {
+    border: 1px solid var(--reddit-orange);
+    border-radius: 4px;
+    text-transform: uppercase;
+    padding: 7.5px 15px;
+    font-weight: bold;
+    position: relative;
+    right: 1050px;
+    font-size: 16px;
+  
+  }
+  
+  #button-public-feed {
+    border: 1px solid var(--reddit-orange);
+    border-radius: 4px;
+    text-transform: uppercase;
+    padding: 7.5px 15px;
+    font-weight: bold;
+    margin-right: 8px;
+    position: relative;
+    right: 1080px;
+    font-size: 16px;
+  }
+  
+  /* for drop down menu */
+  #subseddit_menu {
+    position: absolute;
+    left: 500px;
+    top: 2%;
+  }
+  
+  #profile_img {
+    width: 400px;
+    position: relative;
+    left: 0%;
+  }
+  
+  #name_header {
+    position: absolute;
+    right: 20%;
+    font-family: 'Encode Sans', sans-serif;
+    font-size: 40px;
+    color: #484c52;
+  }
+  
+  #followed_num_p {
+    position: absolute;
+    right: 12%;
+    margin-top: 120px;
+    font-size: 25px;
+    text-align: left;
+    color: #3c3f45;
+  }
+  
+  #following_p {
+    position: absolute;
+    right: 12%;
+    margin-top: 170px;
+    font-size: 25px;
+    text-align: left;
+    color: #3c3f45;
+  }
+  
+  #num_posts {
+    position: absolute;
+    right: 12%;
+    margin-top: 220px;
+    font-size: 25px;
+    text-align: left;
+    color: #3c3f45;
+  }
+  
+  #profile_img {
+    border-radius: 50%;
+  }
+  
+  .profile_buttons {
+    text-transform: uppercase;
+    color: #595d66;
+    text-transform: uppercase;
+  
+  }
 
-}
+  .author_name{
+    text-align: center;
+    font-size: 50px;
+    position:relative;
+    color: #c7894c;
+    font-family: 'Encode Sans', sans-serif;
+  }
 
-#button-public-feed {
-  border: 1px solid var(--reddit-orange);
-  border-radius: 4px;
-  text-transform: uppercase;
-  padding: 7.5px 15px;
-  font-weight: bold;
-  margin-right: 8px;
-  position: relative;
-  right: 130%;
-}
+  .h2_follow {
+    text-align: center;
+  }
 
-/* for drop down menu */
-#subseddit_menu {
-  position: absolute;
-  left: 10%;
-  top: 3%;
-}
+  h1 {
+    color: #595d66;
+    font-family: 'Encode Sans', sans-serif;
+  }
+
+  #search_icon {
+    position: relative;
+    left: 2%;
+    font-size: 30px;
+    top: 10px;
+  }
