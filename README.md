@@ -1,7 +1,7 @@
 <!--
     DO NOT CHANGE THIS FILE - IT MAY BE UPDATED DURING THE ASSIGNMENT
 -->
-## Reddit Clone using Vanilla Javascript 
+## Reddit Frontend Clone using Vanilla Javascript 
 
 
 This project has achieved:
